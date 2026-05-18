@@ -1,5 +1,7 @@
 # Rayterm
 
+[简体中文](README.zh-cn.md)
+
 Rayterm is a cross-platform terminal workspace for developers, operators, and AI-assisted coding workflows. It brings projects, terminals, remote connections, scripts, file transfer, and AI CLI tools into one desktop app, so your day-to-day engineering environments can be saved, switched, and reused like IDE workspaces.
 
 ![Rayterm main interface](assets/screenshots/rayterm-main.png)
