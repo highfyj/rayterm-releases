@@ -38,6 +38,8 @@ Release assets typically include:
 
 If you already use a version with auto-update enabled, Rayterm can check for new releases after a published update is available.
 
+For per-version highlights and notable fixes, see the [Changelog](CHANGELOG.md).
+
 ## Quick Start
 
 1. Install and launch Rayterm.
