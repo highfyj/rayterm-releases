@@ -10,6 +10,55 @@ For binaries and signatures of every release, see
 
 ---
 
+## v1.0.13 — 2026-05-21
+
+### Preset commands for shell terminals
+
+Shell terminal configs gained a **Preset commands** field: lines you put
+there run automatically as soon as the shell starts, so you don't have
+to retype `nvm use 18`, `source ~/.proxyrc`, or `conda activate xxx`
+every time.
+
+- The editor lives in a popup so the main config dialog stays compact —
+  you just see a one-line summary ("N commands configured") and an
+  Edit button.
+- A failing line does **not** lock the terminal. Unlike RUN (exec)
+  terminals, preset commands are typed in as if the user hit Enter, so
+  an error prints to the terminal and the prompt comes back ready for
+  the next command.
+- Lines starting with `#` are treated as comments.
+
+### Environment variables for VibeCoding / RUN terminals
+
+VibeCoding and RUN (exec) terminal configs gained an **Environment
+variables** key/value editor:
+
+- Local terminals: variables are passed directly through the spawned
+  process env — works the same on cmd / PowerShell / bash.
+- WSL / SSH terminals: rayterm prepends `export KEY='VALUE'; ...;
+  <your command>` to the remote bash launch line, so users don't have
+  to learn the per-OS syntax. We always emit POSIX `export` for the
+  remote side regardless of the local OS.
+- Same popup UX as preset commands — only a one-line summary in the
+  main dialog.
+
+### Fixes
+
+- **Accidental Ctrl+R / F5 wiping the terminal UI**: previously, the
+  webview's default reload handler ran on any of those shortcuts,
+  blowing away the entire React tree. The backend PTY processes kept
+  running but the frontend had no way to reattach, which looked like
+  "all my terminals just disappeared". Production builds now intercept
+  `F5`, `Ctrl/Cmd+R`, `Ctrl+Shift+R`, and `Ctrl+F5` before the webview
+  reacts; dev mode keeps the HMR-fallback reload working.
+- **PowerShell preset commands stuck at the `>>` continuation prompt**:
+  PTYs deliver Enter as CR (`\r`), and PSReadLine treats `\n` as a soft
+  newline inside the input buffer rather than submitting the line. The
+  preset writer now uses `\r` as the line separator, which submits each
+  line on every shell — bash and zsh readline accept it too.
+
+---
+
 ## v1.0.12 — 2026-05-18
 
 ### Project Manager & Starred Projects
@@ -49,10 +98,12 @@ in one click, or dismiss the notice permanently.
 
 ## Earlier releases
 
-For release notes prior to v1.0.12, see the per-release pages on
+For release notes prior to v1.0.13, see the per-release pages on
 [GitHub Releases](https://github.com/highfyj/rayterm-releases/releases).
 Highlights:
 
+- **v1.0.12** — Project Manager + starred projects; Claude billing
+  notice for AI scan; Windows fix for resolving npm `.cmd` shims.
 - **v1.0.11** — Startup auto-update banner (dismissible).
 - **v1.0.10** — Exit confirmation; tab switch auto-focuses the terminal;
   Trae / Visual Studio / Android Studio / Xcode detected as editors.
