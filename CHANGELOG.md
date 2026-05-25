@@ -10,6 +10,28 @@ For binaries and signatures of every release, see
 
 ---
 
+## v1.0.14 — 2026-05-25
+
+### Configurable sidebar double-click + jump to opened terminals
+
+The sidebar's terminal list gets a small but heavily-requested workflow
+knob. Previously, double-clicking a terminal config always spawned a
+brand-new tab — convenient when you want a fresh shell, annoying when
+you've already got that terminal open and just want to focus it.
+
+- **Settings → Terminal → Double-click opens a new terminal** is the
+  new toggle. On (default) preserves the legacy behavior. Off makes
+  double-click cycle through every already-opened instance of that
+  config; if none are open it falls back to a fresh spawn so the
+  gesture is never a no-op.
+- The cycle order follows the tab strip, then in-tree split order, so
+  hitting the same row repeatedly hops predictably across windows.
+- The terminal row's right-click menu now lists both **New** and
+  **Jump to opened** unconditionally, so either action is one click
+  away regardless of how the toggle is set.
+
+---
+
 ## v1.0.13 — 2026-05-21
 
 ### Preset commands for shell terminals
@@ -102,6 +124,9 @@ For release notes prior to v1.0.13, see the per-release pages on
 [GitHub Releases](https://github.com/highfyj/rayterm-releases/releases).
 Highlights:
 
+- **v1.0.13** — Preset commands for shell terminals; environment
+  variables for VibeCoding / RUN terminals; intercept accidental
+  Ctrl+R / F5 reloads; PowerShell preset commands fix.
 - **v1.0.12** — Project Manager + starred projects; Claude billing
   notice for AI scan; Windows fix for resolving npm `.cmd` shims.
 - **v1.0.11** — Startup auto-update banner (dismissible).
