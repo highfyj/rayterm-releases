@@ -10,6 +10,31 @@ For binaries and signatures of every release, see
 
 ---
 
+## v1.0.15 — 2026-05-31
+
+### Save & restore workspaces
+
+You can now snapshot a set of open terminal tabs — split layouts and all —
+as a named **workspace**, and bring the whole set back in one gesture.
+Workspaces are scoped per project.
+
+- **Save**: the new save icon in the sidebar's *Terminals* header opens a
+  dialog listing every open tab. Pick one, several, or all of them, name
+  the set, and it's stored with the project. Split-pane layouts are
+  preserved exactly.
+- **Open**: saved workspaces show in a list under the project's terminal
+  tree. Double-click one to open it — a dialog lets you choose **Reopen**
+  (close the current tabs and switch to the workspace) or **Open new**
+  (add the workspace's tabs alongside what's already open), and previews
+  which tabs each choice affects. This list is separate from the terminal
+  tree, so it never clashes with the double-click-to-open-terminal gesture.
+- **Restore on startup**: a new **Settings → Terminal → Restore last
+  workspace on startup** toggle. When on, Rayterm remembers every open tab
+  (with splits) on exit and reopens them automatically next launch —
+  ad-hoc split shells included.
+
+---
+
 ## v1.0.14 — 2026-05-25
 
 ### Configurable sidebar double-click + jump to opened terminals
