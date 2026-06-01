@@ -10,6 +10,31 @@ For binaries and signatures of every release, see
 
 ---
 
+## v1.0.16 — 2026-06-01
+
+### Highlights
+
+**AI scan now matches your shell.** When you run an AI scan to generate
+terminal suggestions, Rayterm now tells the agent which OS and shell the
+commands will actually run in — Windows (PowerShell), macOS (zsh), Linux,
+or WSL (bash) — so the suggested `shell` and `script` entries use the
+right paths, quoting, and built-ins instead of defaulting to Linux/bash.
+A Windows project no longer gets handed bash one-liners it can't run.
+
+**Quick link to all releases.** Settings → About → Updates gains a
+**View all releases on GitHub** link — the manual fallback for when the
+in-app updater can't run, such as sandboxed installs or corporate
+networks that block the updater endpoint.
+
+### Fixes
+
+- **Codex AI agent** — `codex exec` no longer refuses to start in a
+  non-Git folder (`--skip-git-repo-check`), and now runs read-only
+  (`--sandbox read-only`), which clears the sandbox permission errors
+  some hosts — Windows especially — hit during a scan.
+
+---
+
 ## v1.0.15 — 2026-05-31
 
 ### Save & restore workspaces

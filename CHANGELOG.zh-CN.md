@@ -10,6 +10,28 @@ English: [CHANGELOG.md](CHANGELOG.md)
 
 ---
 
+## v1.0.16 — 2026-06-01
+
+### 亮点
+
+**AI 扫描会匹配你的 shell 了。** 运行 AI 扫描生成终端建议时，Rayterm
+现在会告诉 agent 这些命令实际将在哪个 OS / shell 下执行 ——
+Windows（PowerShell）、macOS（zsh）、Linux 或 WSL（bash）—— 于是生成的
+`shell` 和 `script` 字段会用对应平台的路径、引号和内置命令，不再一律
+默认 Linux/bash。Windows 工程不会再拿到一堆跑不了的 bash 命令。
+
+**一键查看所有版本。** 设置 → 关于 → 更新 新增 **在 GitHub 查看所有
+版本** 链接，作为应用内更新器无法工作时的手动回退 —— 沙箱安装、或公司
+网络封了更新器端点的场景。
+
+### 修复
+
+- **Codex AI agent** —— `codex exec` 不再因目录不是 Git 仓库而拒绝启动
+  （`--skip-git-repo-check`），并改为只读运行（`--sandbox read-only`），
+  消除部分宿主（尤其 Windows）扫描时遇到的沙箱权限报错。
+
+---
+
 ## v1.0.15 — 2026-05-31
 
 ### 保存 / 恢复工作区
