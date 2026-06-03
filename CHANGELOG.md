@@ -10,6 +10,30 @@ For binaries and signatures of every release, see
 
 ---
 
+## v1.0.17 — 2026-06-03
+
+### Tools page + one-click programming-font installer
+
+Rayterm gains a **Tools** page — open it from the new wrench icon in the
+top-right title bar. It's a hub for built-in utilities, and the first one
+is a **font installer**.
+
+- **Install programming fonts in one click.** Pick from JetBrains Mono,
+  Fira Code, Cascadia Code, Hack, Source Code Pro, and IBM Plex Mono.
+  Rayterm fetches the font's latest GitHub release, streams the download
+  with a live progress bar, unzips it, and installs the `.ttf`/`.otf`
+  files for you — then the font is ready to choose in the terminal font
+  picker.
+- **User or system scope.** Install just for your account (no prompt) or
+  system-wide for every user. System installs request elevation the native
+  way on each platform — UAC on Windows, an authorization prompt on macOS,
+  `pkexec` on Linux.
+- Each font shows an **installed badge**, a per-font progress bar while it
+  downloads, and the path it was installed to. Fully localized (English /
+  中文).
+
+---
+
 ## v1.0.16 — 2026-06-01
 
 ### Highlights
