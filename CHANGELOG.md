@@ -10,6 +10,29 @@ For binaries and signatures of every release, see
 
 ---
 
+## v1.0.18 — 2026-06-12
+
+### Fixes
+
+- **Dropping a file no longer wipes the UI.** Dragging an HTML, image,
+  or audio file into the Rayterm window used to make the webview
+  navigate straight to that file — every terminal vanished behind the
+  file's content until you restarted. The window now rejects unclaimed
+  drops (you'll see a "not allowed" cursor); pages inside the browser
+  pane still receive drag-and-drop as before, and future in-app drop
+  targets (e.g. upload-by-drop) are unaffected.
+- **macOS: Chinese IME swallowing characters / double spaces.**
+  (macOS only; Windows was never affected.) These are upstream
+  xterm.js defects on WKWebView, now fully worked around at the app
+  layer:
+  - With a Chinese IME, the first character typed after toggling to
+    English via Shift — or a half-width symbol typed directly — is no
+    longer swallowed.
+  - Space no longer produces two spaces while an IME is active
+    (either 中/英 sub-mode).
+
+---
+
 ## v1.0.17 — 2026-06-03
 
 ### Tools page + one-click programming-font installer
